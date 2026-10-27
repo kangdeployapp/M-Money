@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "auto-push": "node scripts/auto-push.mjs",
+    "sync": "git add -A && git commit -m \"chore: manual sync\" && git push origin main"
   },
   "dependencies": {
     "@ai-sdk/google": "^1.1.13",
