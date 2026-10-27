@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { generateObject } from "ai";
-import { google } from "@ai-sdk/google";
+import { google, createGoogleGenerativeAI } from "@ai-sdk/google";
 import { openai } from "@ai-sdk/openai";
 import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
@@ -122,13 +122,14 @@ ${goals.length > 0 ? goals.map((g) => `   - ${g.name}: เป้า ${Number(g.t
 `;
 
     // Attempt AI Generation via Vercel AI SDK
-    const googleKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
+    const googleKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY || process.env.GEMINI_API_KEY;
     const openaiKey = process.env.OPENAI_API_KEY;
 
     if (googleKey) {
       try {
+        const googleProvider = createGoogleGenerativeAI({ apiKey: googleKey });
         const result = await generateObject({
-          model: google("gemini-1.5-flash"),
+          model: googleProvider("gemini-1.5-flash"),
           schema: advisorOutputSchema,
           prompt: promptContext,
         });
