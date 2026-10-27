@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
@@ -8,7 +9,6 @@ import {
   Target,
   Sparkles,
   RotateCcw,
-  ShieldCheck,
   Menu,
   X,
 } from "lucide-react";
@@ -32,10 +32,15 @@ export function Navbar() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6">
         {/* Brand Logo */}
         <Link href="/dashboard" className="flex items-center gap-3 group">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 via-indigo-600 to-sky-400 p-0.5 shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform">
-            <div className="flex h-full w-full items-center justify-center rounded-[10px] bg-[#090d16]">
-              <ShieldCheck className="h-5 w-5 text-sky-400" />
-            </div>
+          <div className="relative h-11 w-11 overflow-hidden rounded-xl border border-sky-500/30 shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-transform bg-[#090d16]">
+            <Image
+              src="/icons/icon-192x192.png"
+              alt="WealthPilot Logo"
+              width={44}
+              height={44}
+              className="h-full w-full object-cover"
+              priority
+            />
           </div>
           <div>
             <div className="flex items-center gap-1.5">
@@ -46,8 +51,8 @@ export function Navbar() {
                 PWA
               </span>
             </div>
-            <p className="text-[11px] text-slate-400 hidden sm:block">
-              ระบบบริหารการเงิน & ที่ปรึกษา AI
+            <p className="text-[10px] text-amber-400/90 font-medium tracking-wider hidden sm:block uppercase">
+              Your Financial Navigator
             </p>
           </div>
         </Link>

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   TrendingDown,
   TrendingUp,
@@ -55,13 +56,30 @@ export default function DashboardPage() {
     <div className="space-y-8 max-w-7xl mx-auto">
       {/* Welcome & Quick Status Banner */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800/80 pb-6">
-        <div>
-          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
-            ภาพรวมการเงินส่วนบุคคล
-          </h1>
-          <p className="text-sm text-slate-400 mt-1">
-            สรุปสถานะความมั่งคั่ง หนี้สิน และกระแสเงินสดสภาพคล่องแบบเรียลไทม์
-          </p>
+        <div className="flex items-center gap-4">
+          <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-2xl border border-sky-500/30 shadow-xl shadow-sky-500/10 bg-[#090d16]">
+            <Image
+              src="/icons/icon-192x192.png"
+              alt="WealthPilot Navigator"
+              width={56}
+              height={56}
+              className="h-full w-full object-cover"
+              priority
+            />
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+                ภาพรวมการเงินส่วนบุคคล
+              </h1>
+              <span className="text-[11px] font-semibold text-amber-400 border border-amber-500/30 bg-amber-500/10 px-2 py-0.5 rounded-full hidden sm:inline-block">
+                Built for Kang
+              </span>
+            </div>
+            <p className="text-sm text-slate-400 mt-1">
+              สรุปสถานะความมั่งคั่ง หนี้สิน และกระแสเงินสดสภาพคล่องแบบเรียลไทม์
+            </p>
+          </div>
         </div>
         <div className="flex items-center gap-3">
           <Link

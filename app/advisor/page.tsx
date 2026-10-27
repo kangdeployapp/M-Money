@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import {
   Sparkles,
   RefreshCw,
@@ -78,19 +79,30 @@ export default function AdvisorPage() {
     <div className="space-y-8 max-w-7xl mx-auto">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/80 pb-6">
-        <div>
-          <div className="flex items-center gap-2">
-            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white flex items-center gap-2.5">
-              <Sparkles className="h-7 w-7 text-sky-400" />
-              ที่ปรึกษาการเงินอัจฉริยะ (AI Financial Advisor)
-            </h1>
-            <span className="rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 px-2.5 py-0.5 text-xs font-bold text-white shadow-sm">
-              CFP Level
-            </span>
+        <div className="flex items-center gap-4">
+          <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-2xl border border-sky-500/30 shadow-xl shadow-sky-500/10 bg-[#090d16]">
+            <Image
+              src="/icons/icon-192x192.png"
+              alt="WealthPilot Navigator"
+              width={56}
+              height={56}
+              className="h-full w-full object-cover"
+              priority
+            />
           </div>
-          <p className="text-sm text-slate-400 mt-1">
-            วิเคราะห์สุขภาพการเงินเชิงลึก คำนวณความเสี่ยง และวางแผน Action Plan สดใหม่สำหรับคุณ
-          </p>
+          <div>
+            <div className="flex items-center gap-2">
+              <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+                ที่ปรึกษาการเงินอัจฉริยะ (AI Financial Advisor)
+              </h1>
+              <span className="rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 px-2.5 py-0.5 text-xs font-bold text-white shadow-sm">
+                CFP Level
+              </span>
+            </div>
+            <p className="text-sm text-slate-400 mt-1">
+              วิเคราะห์สุขภาพการเงินเชิงลึก คำนวณความเสี่ยง และวางแผน Action Plan สดใหม่สำหรับคุณ
+            </p>
+          </div>
         </div>
 
         <button
