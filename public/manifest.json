@@ -1,0 +1,24 @@
+{
+  "name": "WealthPilot - Financial Navigator",
+  "short_name": "WealthPilot",
+  "description": "ระบบจัดการการเงินส่วนบุคคล วางแผนปลดหนี้ Avalanche/Snowball และที่ปรึกษาการเงิน AI",
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#090d16",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
