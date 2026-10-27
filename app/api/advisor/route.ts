@@ -123,19 +123,20 @@ ${goals.length > 0 ? goals.map((g) => `   - ${g.name}: เป้า ${Number(g.t
 
     // Attempt AI Generation via Vercel AI SDK
     const googleKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY || process.env.GEMINI_API_KEY;
+    const geminiModel = process.env.GEMINI_MODEL || "gemini-3.8-flash";
     const openaiKey = process.env.OPENAI_API_KEY;
 
     if (googleKey) {
       try {
         const googleProvider = createGoogleGenerativeAI({ apiKey: googleKey });
         const result = await generateObject({
-          model: googleProvider("gemini-1.5-flash"),
+          model: googleProvider(geminiModel),
           schema: advisorOutputSchema,
           prompt: promptContext,
         });
         return NextResponse.json(result.object);
       } catch (err) {
-        console.warn("Gemini generation failed, trying OpenAI or deterministic fallback", err);
+        console.warn(`Gemini (${geminiModel}) generation failed, trying OpenAI or deterministic fallback`, err);
       }
     }
 
